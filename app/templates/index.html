@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./icon_market.ico">
+    <link rel="stylesheet" href="./styles.css">
+    <title>RECAUDERIA EL FERREZA</title>
+    <style>
+        /* Estilos aquí */
+    </style>
+</head>
+<body>
+    <header>
+        <h1>RECAUDERIA EL FERREZA</h1>
+        <p>TODOS LOS DIAS SON MARTES DE FRESCURA</p>
+    </header>
+
+    <nav>
+        <a href="#">Inicio</a>
+        <a href="#">Sobre Nosotros</a>
+        <a href="#">Galería</a>
+        <a href="#">Servicios</a>
+        <a href="#">Contacto</a>
+    </nav>
+
+    <section class="hero">
+        <h1>🍓🍓🍓🍓🍓🍓🍓🍓🍓🍓</h1>
+    </section>
+
+    <section class="content">
+        <div class="services">
+            <h2>Servicios</h2>
+            <p> 🛒 ENVIO A TU DOMICILIO 🛒</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>Reportes</h2>
+        <form action="/add" method="post">
+            <input type="text" name="titulo" placeholder="Título">
+            <textarea name="contenido" placeholder="Contenido"></textarea>
+            <button type="submit">Añadir</button>
+        </form>
+        <ul>
+            {% for reporte in reportes %}
+            <li>
+                <form action="/update/{{ reporte.id }}" method="post">
+                    <input type="text" name="titulo" value="{{ reporte.titulo }}">
+                    <textarea name="contenido">{{ reporte.contenido }}</textarea>
+                    <button type="submit">Actualizar</button>
+                </form>
+                <a href="/delete/{{ reporte.id }}">Eliminar</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <footer class="footer">
+        <p>© 2024 FERREZA. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
