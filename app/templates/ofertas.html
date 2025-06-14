@@ -4,10 +4,134 @@
     <meta charset="UTF-8">
     <title>Ofertas | GameZone</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="../static/styles.css">
+    <link rel="icon" href="{{url_for('static', filename='icon_market.ico')}}" type="image/x-icon">
+    <style>
+        .offers-section {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 2px 24px #A259FF22;
+            padding: 40px 32px;
+            margin-top: 36px;
+            margin-bottom: 36px;
+        }
+        .offers-title {
+            color: #7F27FF;
+            text-align: center;
+            margin-bottom: 32px;
+            font-size: 2em;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-shadow: 0 0 8px #A259FF33;
+        }
+        .console-title {
+            color: #A259FF;
+            margin: 32px 0 18px 0;
+            font-size: 1.3em;
+            font-weight: bold;
+            text-shadow: 0 0 8px #A259FF22;
+        }
+        .offers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 32px;
+            justify-items: center;
+        }
+        .offer-card {
+            background: #f7f7fa;
+            border-radius: 14px;
+            box-shadow: 0 2px 12px #A259FF22;
+            padding: 22px 18px 18px 18px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 2px solid #e0e0e0;
+            position: relative;
+        }
+        .offer-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 8px 32px #A259FF55;
+            border: 2px solid #A259FF;
+        }
+        .offer-img {
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 16px;
+            background: #fff;
+            box-shadow: 0 0 12px #A259FF22;
+        }
+        .offer-title {
+            font-size: 1.15em;
+            font-weight: bold;
+            color: #7F27FF;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+        .offer-desc {
+            color: #393053;
+            font-size: 0.98em;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+        .offer-price {
+            color: #A259FF;
+            font-size: 1.1em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-decoration: line-through;
+        }
+        .offer-discount {
+            color: #FF46F6;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .buy-btn {
+            background: linear-gradient(90deg, #A259FF 0%, #7F27FF 100%);
+            color: #fff;
+            border: none;
+            padding: 10px 28px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            transition: background 0.2s, box-shadow 0.2s;
+            box-shadow: 0 2px 8px #A259FF33;
+            text-shadow: 0 0 8px #fff;
+        }
+        .buy-btn:hover {
+            background: linear-gradient(90deg, #7F27FF 0%, #A259FF 100%);
+            box-shadow: 0 0 16px #A259FF, 0 0 32px #7F27FF;
+        }
+        .discount-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: #FF46F6;
+            color: #fff;
+            font-size: 0.95em;
+            font-weight: bold;
+            padding: 4px 12px;
+            border-radius: 8px;
+            box-shadow: 0 0 8px #FF46F6AA;
+        }
+        @media (max-width: 700px) {
+            .offers-section {
+                padding: 18px 4px;
+            }
+            .offers-title {
+                font-size: 1.2em;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
         <h1>Ofertas de Videojuegos</h1>
+        <p>¡Aprovecha los mejores descuentos por consola!</p>
     </header>
     <nav>
         <a href="{{ url_for('catalogo') }}">Catálogo</a>
@@ -15,8 +139,77 @@
         <a href="{{ url_for('index') }}">Reseñas</a>
         <a href="{{ url_for('contacto') }}">Contacto</a>
     </nav>
-    <section>
-        <h2>Próximamente catálogo de juegos...</h2>
+    <section class="offers-section">
+        <div class="offers-title">Ofertas por Consola</div>
+        
+        <!-- PlayStation -->
+        <div class="console-title">🎮 PlayStation</div>
+        <div class="offers-grid">
+            <div class="offer-card">
+                <span class="discount-badge">-35%</span>
+                <img class="offer-img" src="https://www.codigi.mx/wp-content/uploads/2024/04/HORIZON-FW-CE-PC-COVER.jpg" alt="Horizon Forbidden West">
+                <div class="offer-title">Horizon Forbidden West</div>
+                <div class="offer-desc">Acompaña a Aloy en una épica aventura en un mundo postapocalíptico lleno de máquinas.</div>
+                <div class="offer-price">$1,299 MXN</div>
+                <div class="offer-discount">$844 MXN</div>
+                <button class="buy-btn">Comprar</button>
+            </div>
+            <div class="offer-card">
+                <span class="discount-badge">-28%</span>
+                <img class="offer-img" src="https://image.api.playstation.com/vulcan/ap/rnd/202109/1321/3mjMyRiJaq8lw1EFWiTCUJRV.png" alt="Gran Turismo 7">
+                <div class="offer-title">Gran Turismo 7</div>
+                <div class="offer-desc">El simulador de carreras definitivo, con gráficos y realismo impresionantes.</div>
+                <div class="offer-price">$1,199 MXN</div>
+                <div class="offer-discount">$863 MXN</div>
+                <button class="buy-btn">Comprar</button>
+            </div>
+        </div>
+        
+        <!-- Xbox -->
+        <div class="console-title">🟩 Xbox</div>
+        <div class="offers-grid">
+            <div class="offer-card">
+                <span class="discount-badge">-40%</span>
+                <img class="offer-img" src="https://juegosdigitalesmexico.mx/files/images/productos/1644602843-halo-infinite-xbox-one.jpg" alt="Halo Infinite">
+                <div class="offer-title">Halo Infinite</div>
+                <div class="offer-desc">El Jefe Maestro regresa en la batalla más grande de la saga Halo.</div>
+                <div class="offer-price">$1,099 MXN</div>
+                <div class="offer-discount">$659 MXN</div>
+                <button class="buy-btn">Comprar</button>
+            </div>
+            <div class="offer-card">
+                <span class="discount-badge">-33%</span>
+                <img class="offer-img" src="https://juegosdigitalesmexico.mx/files/images/productos/1658270671-forza-horizon-5-xbox-series-xs-0.jpg" alt="Forza Horizon 5">
+                <div class="offer-title">Forza Horizon 5</div>
+                <div class="offer-desc">Vive la emoción de las carreras en mundo abierto por México.</div>
+                <div class="offer-price">$1,299 MXN</div>
+                <div class="offer-discount">$870 MXN</div>
+                <button class="buy-btn">Comprar</button>
+            </div>
+        </div>
+        
+        <!-- Nintendo Switch -->
+        <div class="console-title">🔴 Nintendo Switch</div>
+        <div class="offers-grid">
+            <div class="offer-card">
+                <span class="discount-badge">-22%</span>
+                <img class="offer-img" src="https://m.media-amazon.com/images/I/81Nqi9GxAjL.jpg" alt="Pokémon Scarlet">
+                <div class="offer-title">Pokémon Scarlet</div>
+                <div class="offer-desc">Explora la región de Paldea y atrapa nuevos Pokémon en esta aventura única.</div>
+                <div class="offer-price">$1,299 MXN</div>
+                <div class="offer-discount">$1,013 MXN</div>
+                <button class="buy-btn">Comprar</button>
+            </div>
+            <div class="offer-card">
+                <span class="discount-badge">-20%</span>
+                <img class="offer-img" src="https://juegosdigitales.mx/files/images/productos/1644881583-1637886179-mario-kart-8-deluxe-nintendo-switch.jpg" alt="Mario Kart 8 Deluxe">
+                <div class="offer-title">Mario Kart 8 Deluxe</div>
+                <div class="offer-desc">¡Corre con tus personajes favoritos en las pistas más locas y divertidas!</div>
+                <div class="offer-price">$1,199 MXN</div>
+                <div class="offer-discount">$959 MXN</div>
+                <button class="buy-btn">Comprar</button>
+            </div>
+        </div>
     </section>
-</body>
-</html>
+    <footer class="footer">
+        <p>©

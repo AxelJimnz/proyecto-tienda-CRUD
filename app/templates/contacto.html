@@ -2,12 +2,54 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Contactos | GameZone</title>
+    <title>Contacto | GameZone</title>
+    <link rel="stylesheet" href="../static/styles.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="icon" href="{{url_for('static', filename='icon_market.ico')}}" type="image/x-icon">
+    <style>
+        .contact-list {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            align-items: center;
+            margin-top: 32px;
+        }
+        .contact-card {
+            background: #393053;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px #A259FF22;
+            padding: 32px 48px;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            min-width: 320px;
+            max-width: 420px;
+        }
+        .contact-icon {
+            font-size: 2.5em;
+            color: #A259FF;
+            text-shadow: 0 0 12px #A259FF;
+        }
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .contact-info strong {
+            color: #A259FF;
+            font-size: 1.1em;
+            text-shadow: 0 0 6px #A259FF55;
+        }
+        .contact-info span {
+            color: #e0e0e0;
+            font-size: 1em;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Contactos</h1>
+        <h1>Contacto</h1>
+        <p>¡Conoce a nuestro equipo y aliados!</p>
     </header>
     <nav>
         <a href="{{ url_for('catalogo') }}">Catálogo</a>
@@ -16,7 +58,33 @@
         <a href="{{ url_for('contacto') }}">Contacto</a>
     </nav>
     <section>
-        <h2>Próximamente catálogo de juegos...</h2>
+        <h2>NUESTRO EQUIPO Y ALIADOS 🕹️</h2>
+        <div class="contact-list">
+            <div class="contact-card">
+                <span class="contact-icon">👨‍💻</span>
+                <div class="contact-info">
+                    <strong>Axel Jiménez Pérez</strong>
+                    <span>Empleado de atención al cliente</span>
+                </div>
+            </div>
+            <div class="contact-card">
+                <span class="contact-icon">🏢</span>
+                <div class="contact-info">
+                    <strong>Distribuidora GamerMax</strong>
+                    <span>Proveedor oficial de videojuegos</span>
+                </div>
+            </div>
+            <div class="contact-card">
+                <span class="contact-icon">👔</span>
+                <div class="contact-info">
+                    <strong>Lic. Mariana Torres</strong>
+                    <span>Gerente General</span>
+                </div>
+            </div>
+        </div>
     </section>
+    <footer class="footer">
+        <p>© 2025 GameZone. Todos los derechos reservados.</p>
+    </footer>
 </body>
 </html>
