@@ -24,6 +24,18 @@ def index():
     reportes = Reporte.query.all()
     return render_template('index.html', reportes=reportes)
 
+@app.route('/catalogo')
+def catalogo():
+    return render_template('catalogo.html')
+
+@app.route('/ofertas')
+def ofertas():
+    return render_template('ofertas.html')
+
+@app.route('/contacto')
+def contacto():
+    return render_template('contacto.html')
+
 @app.route('/add', methods=['POST'])
 def add():
     titulo = request.form.get('titulo')

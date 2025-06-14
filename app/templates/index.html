@@ -4,43 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+    <link rel="stylesheet" href="../static/styles.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
     <link rel="icon" href="{{url_for('static', filename='icon_market.ico')}}" type="image/x-icon">
-    <meta name="description" content="Bienvenido a la Recaudería El 'Achel', donde todos los días son martes de frescura. Descubre nuestros servicios y productos frescos.">
-    <title>RECAUDERIA 🍓</title>
+
+    <meta name="description" content="Bienvenido a GameZone, tu tienda de videojuegos favorita. Descubre los mejores títulos y ofertas exclusivas.">
+    <title>GameZone 🎮</title>
     <style>
-        
+        /* Puedes agregar estilos personalizados aquí */
     </style>
 </head>
 <body>
     <header>
-        <h1>RECAUDERIA EL "ACHEL"</h1>
-        <p>TODOS LOS DIAS SON MARTES DE FRESCURA</p>
+        <h1>🎮 GAME ZONE 🎮</h1>
+        <p>¡Tu universo gamer en un solo lugar!</p>
     </header>
 
     <nav>
-        <a href="#">Inicio</a>
-        <a href="#">Sobre Nosotros</a>
-        <a href="#">Servicios</a>
-        <a href="#">Contacto</a>
+<nav>
+    <a href="{{ url_for('catalogo') }}">Catálogo</a>
+    <a href="{{ url_for('ofertas') }}">Ofertas</a>
+    <a href="{{ url_for('index') }}">Reseñas</a>
+    <a href="{{ url_for('contacto') }}">Contacto</a>
+</nav>
     </nav>
-
-    <section class="hero">
-        <h2>🍓🍓🍓🍓🍓🍓🍓🍓🍓🍓</h2>
-    </section>
-
-    <section class="content">
-        <div class="services">
-            <h2>Servicios</h2>
-            <p> 🛒 ENVIO A TU DOMICILIO 🛒</p>
-        </div>
-    </section>
-
     <section>
-        <h2>Reportes</h2>
+        <h2>Reseñas de Clientes</h2>
         <form action="/add" method="post">
-            <input type="text" name="titulo" placeholder="Título">
-            <textarea name="contenido" placeholder="Contenido"></textarea>
-            <button type="submit">Añadir</button>
+            <input type="text" name="titulo" placeholder="Título del juego">
+            <textarea name="contenido" placeholder="Tu reseña"></textarea>
+            <button type="submit">Añadir Reseña</button>
         </form>
         <ul>
             {% for reporte in reportes %}
@@ -57,7 +50,7 @@
     </section>
 
     <footer class="footer">
-        <p>© 2025 ACHEL. Todos los derechos reservados.</p>
+        <p>© 2025 GameZone. Todos los derechos reservados.</p>
     </footer>
 </body>
 </html>
