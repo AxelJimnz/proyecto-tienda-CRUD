@@ -5,14 +5,14 @@ mydb = mysql.connector.connect(
   host="db",
   user="root",
   password="1234",
-  database="recauderia_db"
+  database="game_db"
 )
 
 # Crear un cursor
 mycursor = mydb.cursor()
 
 # SQL para insertar un registro
-sql = "INSERT INTO frutas (nombre, descripcion) VALUES (%s, %s)"
+sql = "INSERT INTO reseña (nombre, descripcion) VALUES (%s, %s)"
 val = ("Rosa", "Rojo")
 
 # Ejecutar el comando SQL
